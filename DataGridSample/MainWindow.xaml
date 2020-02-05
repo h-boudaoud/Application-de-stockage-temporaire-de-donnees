@@ -1,0 +1,133 @@
+﻿<Window 
+    x:Class="DataGrid_control.DataGridDetailsSample"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"        
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+    xmlns:local="clr-namespace:DataGrid_control"   
+    Name="windows"
+    Title="DataGridDetailsSample" Height="auto" Width="auto">
+
+    <Window.DataContext>
+        <local:FicheClientsViewModel />
+    </Window.DataContext>
+
+    <StackPanel>
+        <!--<StackPanel Orientation="Horizontal">
+            <Button Width="300">Ajouter un utilisateur</Button>
+            <Button Width="300">Supprimer un utilisateur</Button>
+            <Button Width="300">Remise à zero de l'utilisateur</Button>
+        
+        </StackPanel>-->
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Ajouter un utilisateur" Command="{Binding AddUser}" Margin=" 10"/>
+            <Button Grid.Column="1" Content="Supprimer un utilisateur" Command="{Binding RemoveUser}" 
+                    CommandParameter="{Binding ElementName=dgUsers,Path=SelectedValue}" Margin=" 10"/>
+            <Button Grid.Column="2" Content="Remise à zero de l'utilisateur" Command="{Binding InitializeUser}" 
+                    CommandParameter="{Binding ElementName=dgUsers,Path=SelectedValue}" Margin=" 10"/>
+            <!--<Button Grid.Column="3" Content="Modifier un utilisateur"  Command="{Binding EditeUser}" 
+                    CommandParameter="{Binding ElementName=dgUsers,Path=SelectedValue}"  Margin=" 10,0"/>-->
+
+        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Liste des utilisateurs" Margin="15,0,0,0"/>
+                <Grid  x:Name="myStackPanelItems" Margin="10"  Width="590" MaxHeight="500">
+                    <DataGrid x:Name="dgUsers" AutoGenerateColumns="False" ItemsSource="{Binding Users, Mode=OneWay}" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
+                            <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
+                            <DataGridTextColumn Header="Age" Binding="{Binding Age}" Width="1*" />
+                            <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="2*" />
+                            <DataGridTextColumn Header="Profession" Binding="{Binding Profession}" Width="2*" />
+                            <DataGridTextColumn Header="Adresse" Binding="{Binding UserAdress.UserAdressToString}" Width="4*" />
+                        </DataGrid.Columns>
+
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ElementName=FicheClientsViewModel.Usres}" Margin="10" />
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+                    </DataGrid>
+                </Grid>
+            </StackPanel>
+            <Button x:Name="barreVertical" Content="&lt;" Width="15" Height="auto" Click="BarreVertical_Click"  Margin=" 0,0,25,0"/>
+            <StackPanel x:Name="myStackPanelUser" Grid.Column="2">
+                <StackPanel>
+                    <Label Content="Détail sur l'utilisateur séléctionné" Margin="15,0,0,0"/>
+                    <StackPanel x:Name="infosUser" Grid.Row="0">
+                        <StackPanel.DataContext>
+                            <local:User/>
+                        </StackPanel.DataContext>
+                        <Label Content="Nom" Margin="15,0,0,0"/>
+                        <TextBox x:Name="nom"   Text="{Binding ElementName=dgUsers, Path=SelectedValue.Nom, Mode=TwoWay}" />
+                        <Label Content="Prénom" Margin="15,0,0,0"/>
+                        <TextBox x:Name="prenom" Text="{Binding ElementName=dgUsers, Path=SelectedValue.Prenom, Mode=TwoWay}" />
+                        <Label Content="Age" Margin="15,0,0,0"/>
+                        <TextBox x:Name="age" Text="{Binding ElementName=dgUsers, Path=SelectedValue.Age, Mode=TwoWay}" />
+                        <Label Content="Genre" Margin="15,0,0,0"/>
+                        <RadioButton GroupName="genreUser" Margin="5" VerticalAlignment="Center" Content="Masculin"
+                            IsChecked="{Binding ElementName=dgUsers, Path=SelectedValue.Genre, Converter={local:EnumToBoolExtension}, ConverterParameter={x:Static local:GenreUser.Masculin}, Mode=TwoWay}"/>
+                        <RadioButton GroupName="genreUser" Margin="5" VerticalAlignment="Center" Content="Femenin"
+                            IsChecked="{Binding ElementName=dgUsers, Path=SelectedValue.Genre, Converter={local:EnumToBoolExtension}, ConverterParameter={x:Static local:GenreUser.Femenin}, Mode=TwoWay}"/>
+                        <TextBlock Grid.Row="2" Margin="5" VerticalAlignment="Center" Text="{Binding GenreUser}"/>
+
+                        <Label Content="Profession" Margin="15,0,0,0"/>
+                        <TextBox x:Name="profession" Text="{Binding ElementName=dgUsers, Path=SelectedValue.Profession, Mode=TwoWay}" />
+                    </StackPanel>
+
+                    <Button 
+                        x:Name="barreHorizontale" Content="˄" 
+                        Height="16"
+                        Click="BarreHorizontale_Click" 
+                        Margin="0,10"
+                        VerticalAlignment="Center"
+                        >
+                        <!--<Button 
+                        x:Name="barreHorizontale" Content="˅" 
+                        Height="16"
+                        FontSize="15"
+                        Click="BarreHorizontale_Click" 
+                        RenderTransformOrigin="0.5,0.5"
+                        Margin="2,5,2,5"
+                        VerticalAlignment="Center"
+                        >-->
+                        <!--<Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Button.RenderTransform>-->
+                    </Button>
+                    <Label Content="Adresse de l'utilisateur" Margin="15,0,0,0"/>
+                    <!--<StackPanel>
+                        <Label Content="{Binding ElementName=dgUsers, Path=SelectedValue.UserAdress.UserAdressToString}" />
+                    </StackPanel>-->
+                    <StackPanel  x:Name="adressUser">
+                        <StackPanel.DataContext>
+                            <local:Adresse/>
+                        </StackPanel.DataContext>
+                        <Label Content="Numero" Margin="15,0,0,0"/>
+                        <TextBox x:Name="numero" Text="{Binding ElementName=dgUsers, Path=SelectedValue.UserAdress.Numero, Mode=TwoWay}" />
+                        <Label Content="Voie" Margin="15,0,0,0"/>
+                        <TextBox x:Name="voie" Text="{Binding ElementName=dgUsers, Path=SelectedValue.UserAdress.Voie, Mode=TwoWay}" />
+                        <Label Content="Code Postal" Margin="15,0,0,0"/>
+                        <TextBox x:Name="codePostal" Text="{Binding ElementName=dgUsers, Path=SelectedValue.UserAdress.CodePostal, Mode=TwoWay}" />
+                        <Label Content="Ville" Margin="15,0,0,0"/>
+                        <TextBox x:Name="ville" Text="{Binding ElementName=dgUsers, Path=SelectedValue.UserAdress.Ville, Mode=TwoWay}" />
+                        <Label Content="Pays" Margin="15,0,0,0"/>
+                        <TextBox x:Name="pays" Text="{Binding ElementName=dgUsers, Path=SelectedValue.UserAdress.Pays, Mode=TwoWay}" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

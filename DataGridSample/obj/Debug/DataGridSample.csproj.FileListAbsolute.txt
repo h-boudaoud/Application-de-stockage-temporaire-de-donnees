@@ -1,0 +1,15 @@
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\bin\Debug\DataGridSample.exe.config
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\bin\Debug\DataGridSample.exe
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\bin\Debug\DataGridSample.pdb
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\MainWindow.g.cs
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\App.g.cs
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample_MarkupCompile.cache
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample_MarkupCompile.lref
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\MainWindow.baml
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample.g.resources
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample.Properties.Resources.resources
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample.csproj.GenerateResource.cache
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample.exe
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample.pdb
+F:\MesProjets\VisualStudio\WPF\DataGridSampleSolution\DataGridSample\obj\Debug\DataGridSample.csprojAssemblyReference.cache
