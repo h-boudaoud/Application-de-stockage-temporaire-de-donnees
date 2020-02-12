@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace DataGrid_control
+namespace DataGridSample
 {
     [ValueConversion(typeof(bool), typeof(Enum))]
     public class EnumToBoolExtension : MarkupExtension, IValueConverter

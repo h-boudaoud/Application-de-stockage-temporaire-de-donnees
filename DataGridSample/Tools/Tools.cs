@@ -1,4 +1,4 @@
-﻿namespace DataGrid_control
+﻿namespace DataGridSample
 {
     public enum GenreUser
     {

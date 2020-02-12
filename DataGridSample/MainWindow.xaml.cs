@@ -1,12 +1,14 @@
-﻿using System.Windows;
+﻿using DataGridSample.ViewModel;
+using System.Windows;
 using System.Windows.Media;
 
-namespace DataGrid_control
+namespace DataGridSample
 {
     public partial class DataGridDetailsSample : Window
     {
         private readonly double heightWindows = SystemParameters.VirtualScreenHeight;
         private readonly double widthWindows = SystemParameters.VirtualScreenWidth;
+        private readonly FicheClientsViewModel ficheClientsViewModel = new FicheClientsViewModel();
 
         public DataGridDetailsSample()
         {
@@ -20,8 +22,8 @@ namespace DataGrid_control
             myStackPanelUser.Height = myStackPanelItems.Height;
             infosUser.Height = myStackPanelUser.Height - 20;
             adressUser.Height = 0;
+            DataContext = ficheClientsViewModel;
 
-            InitializeComponent();
         }
 
         private void BarreVertical_Click(object sender, RoutedEventArgs e)
@@ -63,6 +65,7 @@ namespace DataGrid_control
             //barreHorizontale.RenderTransform = rotate;
 
         }
+
     }
 
 }
